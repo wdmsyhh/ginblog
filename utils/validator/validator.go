@@ -2,15 +2,16 @@ package validator
 
 import (
 	"fmt"
+	"reflect"
+
 	"github.com/go-playground/locales/zh_Hans_CN"
 	unTrans "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	zhTrans "github.com/go-playground/validator/v10/translations/zh"
 	"github.com/wejectchen/ginblog/utils/errmsg"
-	"reflect"
 )
 
-func Validate(data any) (string, int) {
+func Validate(data interface{}) (string, int) {
 	validate := validator.New()
 	uni := unTrans.New(zh_Hans_CN.New())
 	trans, _ := uni.GetTranslator("zh_Hans_CN")

@@ -1,11 +1,12 @@
 package v1
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/wejectchen/ginblog/model"
 	"github.com/wejectchen/ginblog/utils/errmsg"
-	"net/http"
-	"strconv"
 )
 
 // AddArticle 添加文章
@@ -76,16 +77,16 @@ func GetArt(c *gin.Context) {
 	if pageNum == 0 {
 		pageNum = 1
 	}
-	if len(title) == 0 {
-		data, code, total := model.GetArt(pageSize, pageNum)
-		c.JSON(http.StatusOK, gin.H{
-			"status":  code,
-			"data":    data,
-			"total":   total,
-			"message": errmsg.GetErrMsg(code),
-		})
-		return
-	}
+	// if len(title) == 0 {
+	// 	data, code, total := model.GetArt(pageSize, pageNum)
+	// 	c.JSON(http.StatusOK, gin.H{
+	// 		"status":  code,
+	// 		"data":    data,
+	// 		"total":   total,
+	// 		"message": errmsg.GetErrMsg(code),
+	// 	})
+	// 	return
+	// }
 
 	data, code, total := model.SearchArticle(title, pageSize, pageNum)
 	c.JSON(http.StatusOK, gin.H{

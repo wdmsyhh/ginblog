@@ -2,11 +2,12 @@ package model
 
 import (
 	"context"
+	"mime/multipart"
+
 	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"github.com/qiniu/go-sdk/v7/storage"
 	"github.com/wejectchen/ginblog/utils"
 	"github.com/wejectchen/ginblog/utils/errmsg"
-	"mime/multipart"
 )
 
 var Zone = utils.Zone
@@ -16,7 +17,7 @@ var Bucket = utils.Bucket
 var ImgUrl = utils.QiniuSever
 
 // UpLoadFile 上传文件函数
-func UpLoadFile(file multipart.File, fileSize int64) (string, int) {
+func UpLoadFile(file multipart.File, fileSize int64, fileHeader *multipart.FileHeader) (string, int) {
 	putPolicy := storage.PutPolicy{
 		Scope: Bucket,
 	}
@@ -34,7 +35,29 @@ func UpLoadFile(file multipart.File, fileSize int64) (string, int) {
 	if err != nil {
 		return "", errmsg.ERROR
 	}
-	url := ImgUrl + ret.Key
+	url := ImgUrl + "/" + ret.Key
+
+	// oss
+	// client, err := oss.New(utils.OssEndpoint, utils.OssAccessKeyID, utils.OssAccessKeySecret)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	os.Exit(-1)
+	// }
+	// bucket, err := client.Bucket(utils.OssBucket)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	os.Exit(-1)
+	// }
+	// err = bucket.PutObject(fileHeader.Filename, file)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	os.Exit(-1)
+	// }
+	// url, err := bucket.SignURL(fileHeader.Filename, oss.HTTPGet, 20)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	os.Exit(-1)
+	// }
 	return url, errmsg.SUCCSE
 }
 

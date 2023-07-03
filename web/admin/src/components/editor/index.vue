@@ -8,7 +8,7 @@
 import Editor from '@tinymce/tinymce-vue'
 import './tinymce.min.js'
 import './icons/default/icons.min.js'
-import '../../assets/tinymce/themes/silver/theme.min.js'
+import '../../../public/tinymce/themes/silver/theme.min.js'
 
 import './langs/zh_CN'
 
@@ -55,6 +55,8 @@ export default {
         },
         imagetools_cors_hosts: ['*'],
         imagetools_proxy: '',
+        skin_url: '../../../tinymce/skins/ui/oxide', // skin路径，这里可以引用到 public 中的，虽然我也没有写前缀，疑惑,不过解决了打包部署后访问不到 css 文件的问题。
+        content_css: '../../../tinymce/skins/content/default/content.min.css',
       },
       content: this.value,
     }
@@ -71,6 +73,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../assets/tinymce/skins/ui/oxide/skin.min.css');
-@import url('../../assets/tinymce/skins/content/default/content.min.css');
+/* @import url('../../assets/tinymce/skins/ui/oxide/skin.min.css');
+@import url('../../assets/tinymce/skins/content/default/content.min.css'); */
 </style>

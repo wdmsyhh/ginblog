@@ -20,7 +20,10 @@ require (
 	gorm.io/gorm v1.24.5
 )
 
+require golang.org/x/time v0.3.0 // indirect
+
 require (
+	github.com/aliyun/aliyun-oss-go-sdk v2.2.7+incompatible
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.0 // indirect
 	github.com/goccy/go-json v0.10.0 // indirect

@@ -1,100 +1,14 @@
 <div align="center">
 
-# Ginblog（项目已完成，欢迎使用)
-
-</div>
-
-<div align="center">
-
-[![star](https://gitee.com/wejectchan/ginblog/badge/star.svg?theme=white)](https://gitee.com/wejectchan/ginblog/stargazers)
-[![Go Report Card](https://goreportcard.com/badge/github.com/wejectchen/ginblog)](https://goreportcard.com/report/github.com/wejectchen/ginblog)
-<a href="https://github.com/wejectchen/Ginblog/blob/master/LICENSE">
-<img src="https://img.shields.io/github/license/wejectchen/Ginblog"></img></a>
-<a href="https://github.com/wejectchen/Ginblog">
-![](https://img.shields.io/github/stars/wejectchen/Ginblog?label=GitHub)</a>
-<a href="https://pkg.go.dev/github.com/wejectchen/ginblog#section-readme">
-![](https://img.shields.io/badge/Go-Package-blue)</a>
-
-</div>
-
-<div align="center">
-<img  src="https://gitee.com/wejectchan/ginblog/raw/master/upload/zhizuotu_1.jpg" width="550" height="350"/>
-</div>
-
-## 重要更新
-
-- 2022.8.17 新增上传七牛服务器区域配置，现在在 `config/config.ini` 下可以配置七牛对象存储的服务器区域，配置更方便。
-
-- 2022.4.28 取消后台页面新增文章中上传图片为“必填”的限制，避免在配置七牛云上传不成功时报错。
-
-- 2021.3.7 修改了文章阅读页面css样式。
-
-- 2021.3.2 修改静态资源托管路径，前端项目下直接打包，不用再移动到static目录下，更加方便。
-
-- 2021.2.12 为了交流方便，建立了一个QQ群：951736723，如果有问题，欢迎进群交流。
-
-- 2021.2.10 增加了展示页面的移动端适配
-
-  <img src="https://gitee.com/wejectchan/ginblog/raw/master/upload/mobile.png" width="250px" />
-
-  <img src="https://gitee.com/wejectchan/ginblog/raw/master/upload/mobile2.png"  width="250px" />
-
-
-- 2021.1.2 加入注册、登录、评论功能，后台管理加入评论审核功能
-
-- 2021.1.3 增加 登录、注册验证功能；增加评论数量显示；增加阅读数量显示
-  增加：文章页面评论数、阅读数
+# Ginblog
 
 ## 介绍
 
-gin+vue 全栈制作一个博客。
-
-这是一个分享全栈制作过程的项目，旨在为有兴趣接触 golang web 开发的朋友分享一些制作经验。
-
-你可以前往 [B 站(https://space.bilibili.com/402177130)](https://space.bilibili.com/402177130)
-观看全栈的制作过程，你也可以留言分享你的观点，非常乐意与你交流。
-
-## 目录结构
-
-```shell
-├─  .gitignore
-│  go.mod // 项目依赖
-│  go.sum
-│  LICENSE
-│  main.go //主程序
-│  README.md
-│  tree.txt
-│          
-├─api         
-├─config // 项目配置入口   
-├─database  // 数据库备份文件（初始化）
-├─log  // 项目日志
-├─middleware  // 中间件
-├─model // 数据模型层
-├─routes
-│      router.go // 路由入口    
-├─static // 打包静态文件
-│  ├─admin  // 后台管理页面 (已废弃，打包静态文件在web/admin/dist下)         
-│  └─front  // 前端展示页面 (已废弃，打包静态文件在web/front/dist下) 
-├─upload   
-├─utils // 项目公用工具库
-│  │  setting.go 
-│  ├─errmsg   
-│  └─validator         
-└─web // 前端开发源码（VUECLI项目源文件)
-    ├─admin             
-    └─front
-```
+gin+vue 全栈博客。
 
 ## 运行&&部署
 
 1. 克隆项目
-
-```shell
-git clone git@gitee.com:wejectchan/ginblog.git
-#or
-git clone https://github.com/wejectchen/Ginblog.git
-```
 
 2. 转到下面文件夹下
 
@@ -156,10 +70,6 @@ http://localhost:3000/admin
 默认管理员:admin  密码:123456
 ```
 
-enjoy~~~~
-
-#### ==使用、二开过程中，发现问题或者有功能需求欢迎提交 `Iusse` 或者直接 `PR`==
-
 ## 实现功能
 
 1. 简单的用户管理权限设置
@@ -194,95 +104,6 @@ enjoy~~~~
     - moment
 - MySQL version:8.0.21
 
-## 项目预览
-
-- 前端展示页面
-  ![](https://gitee.com/wejectchan/ginblog/raw/master/upload/front1.png)
-
-- 前端展示页面
-  ![](https://gitee.com/wejectchan/ginblog/raw/master/upload/front2.png)
-
-- 后台登录页面
-
-  ![](https://gitee.com/wejectchan/ginblog/raw/master/upload/admin.jpg
-  )
-
-- 后台管理页面
-
-  ![](https://gitee.com/wejectchan/ginblog/raw/master/upload/admin2.jpg)
-
-## 更新进度(制作视频已基本全部更新完毕)
-
-### 后端完成
-
-[第一节 初始化项目+配置参数](https://www.bilibili.com/video/BV1AA411v7e6)
-
-[第二节 配置数据库，数据模型](https://www.bilibili.com/video/BV1A5411a7cf)
-
-[第三节 构架错误处理模块和路由接口](https://www.bilibili.com/video/BV1oA411e7kM)
-
-[第四节 编写用户模块接口，实现初步验证+分页功能](https://www.bilibili.com/video/BV1A5411a7qw)
-
-[第五节 用户密码加密存储策略介绍及选择](https://www.bilibili.com/video/BV1AD4y1D7BX)
-
-[第六节 编写编辑用户信息+删除用户接口](https://www.bilibili.com/video/BV19f4y1R7RE)
-
-[第七节 完成博客分类接口编写](https://www.bilibili.com/video/BV16Z4y1T7Nc)
-
-[第八节 编写博客文章接口（新增、编辑、删除）](https://www.bilibili.com/video/BV1JD4y1U76f)
-
-[第九节 完成博客文章接口（文章和分类的关联查询）](https://www.bilibili.com/video/BV1YT4y1j7Co)
-
-[第十节 编写登录接口，完成 JWT 中间件](https://www.bilibili.com/video/BV1Mp4y1q76P)
-
-[第十一节 完成登录接口](https://www.bilibili.com/video/BV1cZ4y1M79w)
-
-[第十二节 完成上传接口（GIN+七牛对象储存）](https://www.bilibili.com/video/BV17V411z7cW)
-
-[第十三节 处理日志系统（自定义日志、按时间分割日志、软连接最新日志）](https://www.bilibili.com/video/BV16v411v7D7)
-
-[第十四节 后端数据验证、跨域参数配置、增加列表查询的总数返回](https://www.bilibili.com/video/BV1Hi4y1g7aj)
-
-### 前端后台管理页面完成
-
-[第一节 前端初始化，开发环境搭建及相关依赖安装](https://www.bilibili.com/video/BV16T4y157JB)
-
-[第二节 编写登录页面，实现数据双向绑定和数据验证](https://www.bilibili.com/video/BV1oi4y1u7ZJ)
-
-[第三节 完成登录页面](https://www.bilibili.com/video/BV1JK4y1Y7pd)
-
-[第四节 配置路由导航守卫，搭建后台管理页面框架](https://www.bilibili.com/video/BV1Ni4y1g7ju)
-
-[第五节 完成后台页面菜单栏和页面路由跳转](https://www.bilibili.com/video/BV1sC4y187Pc)
-
-[第六节 编写用户列表页面](https://www.bilibili.com/video/BV19D4y127U9)
-
-[第七节 用户列表搜索和删除功能](https://www.bilibili.com/video/BV19V411U7ud)
-
-[第八节 完成用户列表新增用户和编辑用户功能](https://www.bilibili.com/video/BV19D4y127kb)
-
-[第九节 修复部分 BUG](https://www.bilibili.com/video/BV19h411d7eF)
-
-[第十节 编写分类列表和文章列表页面](https://www.bilibili.com/video/BV1rv411y7Wm)
-
-[第十一节 完成新增文章和编辑文章页面](https://www.bilibili.com/video/BV19h41197BB)
-
-[第十二节 自定义封装 tinymce 富文本编辑器，实现编辑器本地上传图片等功能](https://www.bilibili.com/video/BV1Uz4y1f76J)
-
-[第十三节 后台页面完结，vue 打包部署](https://www.bilibili.com/video/BV12i4y1M7eD)
-
-### 前端展示页面（更新完毕）
-
-[第一节 搭建项目框架](https://www.bilibili.com/video/BV1LX4y1u7py)
-
-[第二节 编写主内容区+个人介绍](https://www.bilibili.com/video/BV1EZ4y137qG)
-
-[第三节 完成个人简介更新功能](https://www.bilibili.com/video/BV17v411t7Gw)
-
-[第四节 完成文章列表页面](https://www.bilibili.com/video/BV17y4y1U7FB)
-
-[第五节 完成文章详情页面](https://www.bilibili.com/video/BV1Eo4y1Z7c9)
-
 ## Docker部署
 
 ### 一、如何安装docker
@@ -296,7 +117,7 @@ enjoy~~~~
 ```shell
 sudo apt-get remove docker docker-engine docker.io containerd runc
 Reading package lists... Done
-Building dependency tree    
+Building dependency tree
 Reading state information... Done
 Package 'docker-engine' is not installed, so not removed
 Package 'docker' is not installed, so not removed
@@ -322,7 +143,7 @@ $ sudo apt-get install \
 - 获取官方GPG key
 
 ```shell
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 - 验证key,如果输出的是下列内容，则说明正确
@@ -355,9 +176,9 @@ $ sudo add-apt-repository \
 - 更新仓库和安装
 
 ```shell
- $ sudo apt-get update
+ sudo apt-get update
 
- $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 - 进行验证，运行hello-world
@@ -429,7 +250,13 @@ docker pull mysql:8.0.22
 docker images
 
 #运行镜像
-docker run -d -p 3306:3306 -v /my/own/datadir:/var/lib/mysql --name ginblog-mysql -e MYSQL_ROOT_PASSWORD=admin123  mysql
+docker run -itd -p 3306:3306 --name ginblog-mysql \
+-v /my/docker/mysql/mysql-files:/var/lib/mysql-files \
+-v /my/docker/mysql/conf:/etc/mysql \
+-v /my/docker/mysql/logs:/var/log/mysql \
+-v /my/docker/mysql/data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=123456 \
+mysql:8.0.22
 
 # -d 表示后台运行，并返回容器id
 # -p 3006:3306 表示端口映射，具体为 -p 主机端口：容器端口
@@ -520,9 +347,9 @@ axios.defaults.baseURL = 'http://线上服务器ip或域名:3000/api/v1'
 **别忘了，修改完地址后，重新打包下**
 
 ```shell
-$ yarn build
+yarn build
 
-$ npm run build
+npm run build
 ```
 
 ### 生成镜像
@@ -535,9 +362,3 @@ $ docker run -d -p 3000:3000 --name ginblog ginblog
 
 #这样访问服务器IP:3000 就可以访问网站了
 ```
-
-## Thanks for free JetBrains Open Source license
-
-感谢JetBrains免费开源授权
-
-<a href="https://www.jetbrains.com" target="_blank"><img src="https://gitee.com/wejectchan/ginblog/raw/master/upload/jet.png" height="200" /></a>

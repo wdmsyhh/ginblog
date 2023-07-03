@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+
 	"gopkg.in/ini.v1"
 )
 
@@ -21,6 +22,11 @@ var (
 	SecretKey  string
 	Bucket     string
 	QiniuSever string
+
+	OssEndpoint        string
+	OssAccessKeyID     string
+	OssAccessKeySecret string
+	OssBucket          string
 )
 
 func init() {
@@ -31,6 +37,7 @@ func init() {
 	LoadServer(file)
 	LoadData(file)
 	LoadQiniu(file)
+	LoadOss(file)
 }
 
 func LoadServer(file *ini.File) {
@@ -53,4 +60,11 @@ func LoadQiniu(file *ini.File) {
 	SecretKey = file.Section("qiniu").Key("SecretKey").String()
 	Bucket = file.Section("qiniu").Key("Bucket").String()
 	QiniuSever = file.Section("qiniu").Key("QiniuSever").String()
+}
+
+func LoadOss(file *ini.File) {
+	OssAccessKeyID = file.Section("oss").Key("AccessKeyID").String()
+	OssAccessKeySecret = file.Section("oss").Key("AccessKeySecret").String()
+	OssBucket = file.Section("oss").Key("Bucket").String()
+	OssEndpoint = file.Section("oss").Key("Endpoint").String()
 }
