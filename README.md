@@ -1,5 +1,3 @@
-<div align="center">
-
 # Ginblog
 
 ## 介绍
